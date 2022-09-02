@@ -1,11 +1,13 @@
 "use strict"
 
 function tocaSom (id) {
-    return document.querySelector(id).play();
-}
-
-function showEvent (event) {
-    return console.log(event.code);
+    const elemento = document.querySelector(id);
+    
+    if (elemento && elemento.localName === 'audio') {
+        elemento.play();
+    } else {
+        console.log('Não é possível reproduzir esse elemento!');
+    }
 }
 
 const listaTeclas = document.querySelectorAll('.tecla');
